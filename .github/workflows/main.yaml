@@ -58,7 +58,6 @@ jobs:
           namespace: 'default'
           manifests: |
             container-frontend-deployment.yaml
-          images: |
-            talkcontainers.azurecr.io/containerfrontend:${{ github.sha }}
+          images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/containerfrontend:${{ github.sha }}
           imagepullsecrets: |
             demo-k8s-secret          
