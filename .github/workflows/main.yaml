@@ -46,7 +46,7 @@ jobs:
         uses: azure/setup-kubectl@v3
       - uses: Azure/k8s-create-secret@v1.1
         with:
-          container-registry-url: contoso.azurecr.io
+          container-registry-url: talkcontainers.azurecr.io
           container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
           container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
           secret-name: demo-k8s-secret
