@@ -34,3 +34,4 @@ jobs:
           registry-username: ${{ secrets.REGISTRY_USERNAME }}
           registry-password: ${{ secrets.REGISTRY_PASSWORD }}
           name: container-frontend
+          location: 'germanywestcentral'
