@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: container-frontend-deployment
+  labels:
+    app: container-frontend
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: container-frontend
+  template:
+    metadata:
+      labels:
+        app: container-frontend
+    spec:
+      containers:
+      - name: container-frontend  
+        image: talkcontainers.azurecr.io/container-frontend:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 50m
+          limits:
+            cpu: 100m
