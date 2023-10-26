@@ -50,6 +50,6 @@ jobs:
         with:
           namespace: 'default'
           manifests: |
-            container-fronted-deployment.yaml
+            container-frontend-deployment.yaml
           images: '${{ secrets.REGISTRY_LOGIN_SERVER }}/containerfrontend:${{ github.sha }}'
           pull-images: false
