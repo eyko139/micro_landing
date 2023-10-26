@@ -58,6 +58,6 @@ jobs:
           manifests: |
             container-frontend-deployment.yaml
           images: |
-            ${{ secrets.REGISTRY_LOGIN_SERVER }}/containerfrontend:${{ github.sha }}'
+            talkcontainers.azurecr.io/containerfrontend:${{ github.sha }}'
           imagepullsecrets: |
             demo-k8s-secret          
