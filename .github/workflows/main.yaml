@@ -50,14 +50,7 @@ jobs:
           container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
           container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
           secret-name: demo-k8s-secret
-      - name: Deploy to AKS
-        id: deploy-aks
-        uses: Azure/k8s-deploy@v4
-        with:
-          action: deploy
-          namespace: 'default'
-          manifests: |
-            container-frontend-deployment.yaml
-          images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/containerfrontend:${{ github.sha }}
-          imagepullsecrets: |
-            demo-k8s-secret          
+      - name: Run kubectl
+        run: |
+          kubectl get deploy
+          kubectl set image deployment/container-frontend-deployment container-frontend=talkcontainers.azurecr.io/containerfrontend:${{ github.sha }}
