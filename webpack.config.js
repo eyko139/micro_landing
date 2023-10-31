@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   devtool: "source-map",
-  entry: path.resolve(__dirname, "./src/talk-container.tsx"),
+  entry: path.resolve(__dirname, "./src/talk-landing.tsx"),
   module: {
     rules: [
       {
@@ -24,7 +24,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "talk-container.js",
+    filename: "talk-landing.js",
     libraryTarget: "system",
   },
   resolve: {

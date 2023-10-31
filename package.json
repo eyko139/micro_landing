@@ -1,5 +1,5 @@
 {
-  "name": "@talk/container",
+  "name": "@talk/landing",
   "scripts": {
     "start": "webpack serve --mode=development",
     "start:standalone": "webpack serve --env standalone",

@@ -21,19 +21,19 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - run: |
-          docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/containerfrontend:${{ github.sha }}
-          docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/containerfrontend:${{ github.sha }}
+          docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/landingfrontend:${{ github.sha }}
+          docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/landingfrontend:${{ github.sha }}
 
       - name: 'Deploy to Azure Container Instances'
         uses: 'azure/aci-deploy@v1'
         with:
           resource-group: ${{ secrets.RESOURCE_GROUP }}
           dns-name-label: namelabeltest
-          image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/containerfrontend:${{ github.sha }}
+          image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/landingfrontend:${{ github.sha }}
           registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
           registry-username: ${{ secrets.REGISTRY_USERNAME }}
           registry-password: ${{ secrets.REGISTRY_PASSWORD }}
-          name: container-frontend
+          name: landing-frontend
           location: 'germanywestcentral'
       - name: Set AKS context
         id: set-context
@@ -53,4 +53,4 @@ jobs:
       - name: Run kubectl
         run: |
           kubectl get deploy
-          kubectl set image deployment/container-frontend-deployment container-frontend=talkcontainers.azurecr.io/containerfrontend:${{ github.sha }}
+          kubectl set image deployment/landing-frontend-deployment landing-frontend=talkcontainers.azurecr.io/landingfrontend:${{ github.sha }}
