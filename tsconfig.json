@@ -4,7 +4,7 @@
     "jsx": "react-jsx",
     "declarationDir": "dist"
   },
-  "files": ["src/talk-container.tsx"],
+  "files": ["src/talk-landing.tsx"],
   "include": ["src/**/*"],
   "exclude": ["src/**/*.test*"]
 }
