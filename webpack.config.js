@@ -7,7 +7,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: ['babel-loader'],
+        use: ["babel-loader"],
         exclude: /node_modules/,
       },
       {
@@ -24,12 +24,12 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: 'talk-container.js',
+    filename: "talk-container.js",
     libraryTarget: "system",
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss'],
-    modules: ['src', 'node_modules'] // Assuming that your files are inside the src dir
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".css", ".scss"],
+    modules: ["src", "node_modules"], // Assuming that your files are inside the src dir
   },
   externals: {
     react: "react",
